@@ -126,9 +126,11 @@ STATIC_URL = '/static/'
 # STATIC_ROOT =
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static', # copiar arquivos do grappelli!!!
+    BASE_DIR / 'static', # copiar arquivos do grappelli (se utilizados)!!!
 ]
 
 # Arquivos de mídia via upload
-MEDIA_URL = 'media/'
-# MEDIA_ROOT =
+MEDIA_URL = '/media/'
+# MEDIA_ROOT = (
+#   os.path.join(BASE_DIR, 'media') #pasta media para abrigar os arquivos dos usuários
+# )

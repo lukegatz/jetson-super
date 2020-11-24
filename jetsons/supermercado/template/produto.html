@@ -1,4 +1,5 @@
 {% load static %}
+{% static "" as base_url %}
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -7,8 +8,8 @@
 </head>
 <body>
     <h3>
-        Trouxemos a imagem:
-        <img src="{{ v_imagem }}" alt="Imagem" >
+        Lista de compras:
+        <p><img src="{{ v_imagem }}" alt="Imagem" width="25%"></p>
 
     </h3>
 </body>

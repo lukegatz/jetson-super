@@ -16,9 +16,11 @@ class Codificador:
 	def codificar(self, arquivo):
 		with open(arquivo, 'rb') as arquivo_ler:
 			dados = arquivo_ler.read()
+			# encoded = base64.urlsafe_b64encode(dados)
 			encoded = base64.b64encode(dados)
 			base64_message = encoded.decode('utf-8')
 
+		# return base64_message.rstrip("=")
 		return base64_message
 
 
@@ -31,10 +33,14 @@ class Decodificador:
 	def decodificar(self, referencia):
 		base64img_bytes = referencia.encode('utf-8')
 		# pasta em que o arquivo será salvo
-		pasta = 'imgs/encoded/'
+		pasta = 'static/imgs/'
 		# o arquivo é PNG, por padrão
 		arquivo = pasta + str(uuid.uuid4()) + ".png"
 
 		with open(arquivo, 'wb') as file_to_save:
-			decoded = base64.decodebytes(base64img_bytes)
+			# decoded = base64.decodebytes(url)
+			# o decode precisa ser feito utilizando o método 'urlsafe'
+			decoded = base64.urlsafe_b64decode(base64img_bytes)
 			file_to_save.write(decoded)
+
+		return arquivo

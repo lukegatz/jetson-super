@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from estoque.views import teste, produto_com_imagem
+from caixa.views import teste, produto_com_imagem
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('teste/', teste),
-    path('produtos/', produto_com_imagem)
+    # estudar o porquê do erro, quando há url aqui!!!
+    path('', produto_com_imagem)
 ]
