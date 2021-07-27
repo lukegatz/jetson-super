@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('teste/', teste),
     # estudar o porquê do erro, quando há url aqui!!!
-    path('', produto_com_imagem)
+    path('', produto_com_imagem),
+    # path('/caixa/', 'caixa.html')
 ]

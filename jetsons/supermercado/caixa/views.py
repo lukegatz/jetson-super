@@ -18,10 +18,10 @@ def produto_com_imagem(request):
 
     imagem = produto_dict['imagem']['value']
     # problema com padding
-    imagem = imagem + '===' # "===" é o máximo de padding
+    imagem = imagem + '==='  # "===" é o máximo de padding
     # decodificando a imagem utilizando o método do Decoder
     img_decode = dc.decodificar(request, imagem)
-    print(img_decode) # apenas garantindo que passamos um str aqui
+    print(img_decode)  # apenas garantindo que passamos um str aqui
 
     return render(request, 'produto.html', {'v_imagem': img_decode})
 

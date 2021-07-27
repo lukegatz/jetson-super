@@ -1,32 +1,37 @@
-from django.db import models
-
-# Create your models here.
 # coding: UTF-8
+
+# from django.db import models
+
 import base64, uuid
 
 '''
-Funcionamento do processo de encode e decode dos arquivos a serem armazenados no server
+Funcionamento do processo de encode e decode dos
+arquivos a serem armazenados no server
 '''
 
+
 '''
-A classe Codificador recebe um arquivo e retorna o string base64 que representa o arquivo
+A classe Codificador recebe um arquivo e retorna
+o string base64 que representa o arquivo
 '''
 class Codificador:
 
 	def codificar(self, arquivo):
 		with open(arquivo, 'rb') as arquivo_ler:
 			dados = arquivo_ler.read()
-			# encoded = base64.urlsafe_b64encode(dados)
-			encoded = base64.b64encode(dados)
+			encoded = base64.urlsafe_b64encode(dados)
+			# encoded = base64.b64encode(dados)
 			base64_message = encoded.decode('utf-8')
 
-		# return base64_message.rstrip("=")
-		return base64_message
+		return base64_message.rstrip('=')
+
 
 
 '''
-A classe Decodificador recebe uma string, representando o arquivo que foi convertido, e retorna
-um novo arquivo, com um nome aleatório
+A classe Decodificador recebe uma string,
+representando o arquivo que foi convertido, 
+e retorna um novo arquivo, com um nome
+aleatório
 '''
 class Decodificador:
 
